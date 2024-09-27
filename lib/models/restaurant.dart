@@ -1,7 +1,9 @@
+import 'package:flutter/material.dart';
+
 import 'food.dart';
 
-class Restaurant {
-    // List of food items
+class Restaurant extends ChangeNotifier {
+  // List of food items
   final List<Food> _menu = [
     // burgers
     Food(
@@ -13,6 +15,19 @@ class Restaurant {
       availableAddons: [
         Addon(name: "Extra cheese", price: 0.99),
         Addon(name: "Bacon", price: 1.49),
+      ],
+    ),
+    Food(
+      name: "Mushroom Swiss Burger",
+      description:
+          "A savory beef patty topped with Swiss cheese and sautéed mushrooms on a toasted bun.",
+      imagePath: "lib/images/burgers/mushroom_swiss_burger.png",
+      price: 2.49,
+      category: FoodCategory.burgers,
+      availableAddons: [
+        Addon(name: "Extra Swiss cheese", price: 0.99),
+        Addon(name: "Grilled onions", price: 0.79),
+        Addon(name: "Fried egg", price: 1.49),
       ],
     ),
     Food(
@@ -246,7 +261,8 @@ class Restaurant {
     ),
     Food(
       name: "Milkshake",
-      description: "Creamy milkshake available in chocolate, vanilla, or strawberry.",
+      description:
+          "Creamy milkshake available in chocolate, vanilla, or strawberry.",
       imagePath: "lib/images/drinks/milkshake.png",
       price: 2.99,
       category: FoodCategory.drinks,
@@ -255,4 +271,6 @@ class Restaurant {
       ],
     ),
   ];
+
+  List<Food> get menu => _menu;
 }
